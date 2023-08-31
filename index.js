@@ -6,6 +6,7 @@ const app = express();
 app.use('/',require('./routes'));
 
 
+
 //running the server
 app.listen(port, (err)=>{
     if(err){
