@@ -2,14 +2,16 @@ const express = require(`express`);
 const port = 8900;
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
+const db = require('./config/mongoose');
 
 // IMPORTANT NOTE: add this line before using express router line
 app.use(expressLayouts);
 
+//setting up individual static files for individual ejs files AND use style and script variable at that specific position in layout.ejs
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
 
-
+//for accessing static files
 app.use(express.static('./assets'));
 
 // use express router 
