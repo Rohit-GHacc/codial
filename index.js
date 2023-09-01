@@ -6,6 +6,12 @@ const expressLayouts = require('express-ejs-layouts');
 // IMPORTANT NOTE: add this line before using express router line
 app.use(expressLayouts);
 
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
+
+app.use(express.static('./assets'));
+
 // use express router 
 app.use('/',require('./routes'));
 
