@@ -16,3 +16,8 @@ module.exports.signIn = (req,res)=>{
         title: 'Sign In'
     });
 }
+
+//get the sign up data
+module.exports.create = (req,res)=>{
+    //todo later
+}
