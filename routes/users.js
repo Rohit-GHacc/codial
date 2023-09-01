@@ -7,4 +7,8 @@ router.get('/',function(req,res){
 })
 // router.get('/profile',usersController.profile);
 router.use('/profile',require('./profile'));
+
+router.get('/sign-in',usersController.signIn);
+router.get('/sign-up',usersController.signUp);
+
 module.exports = router;
