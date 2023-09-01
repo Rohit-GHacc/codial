@@ -1,11 +1,18 @@
 const express = require(`express`);
 const port = 8900;
 const app = express();
+const expressLayouts = require('express-ejs-layouts');
+
+// IMPORTANT NOTE: add this line before using express router line
+app.use(expressLayouts);
 
 // use express router 
 app.use('/',require('./routes'));
 
 
+// set up the view engine
+app.set('view engine','ejs');
+app.set('views','./views');
 
 //running the server
 app.listen(port, (err)=>{
