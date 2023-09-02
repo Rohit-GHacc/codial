@@ -21,3 +21,8 @@ module.exports.signIn = (req,res)=>{
 module.exports.create = (req,res)=>{
     //todo later
 }
+
+// sign in and create a session for the user
+module.exports.createSession = (req,res)=>{
+    //todo later
+}

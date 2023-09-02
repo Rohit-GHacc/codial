@@ -4,7 +4,10 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');
 //to set up connection to mongodb
 const db = require('./config/mongoose');
+const cookieParser = require('cookie-parser');
 
+app.use(express.urlencoded());
+app.use(cookieParser())
 // IMPORTANT NOTE: add this line before using express router line
 app.use(expressLayouts);
 
