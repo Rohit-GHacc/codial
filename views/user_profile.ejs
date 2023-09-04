@@ -1,3 +1,13 @@
 <link rel="stylesheet" href="/css/users_profile.css">
     <h1>Users Profile</h1>
-   
+   <p>
+    Username: <%= user.name %> <br>
+    Your email: <%=  user.email %>
+   </p>
+
+   <p>
+    <form action="/users/profile/sign-out" method="GET">
+        <input type="submit" value="Sign Out">
+    </form>
+    
+   </p>
