@@ -48,4 +48,7 @@ module.exports.create = async (req,res)=>{
 // sign in and create a session for the user
 module.exports.createSession = (req,res)=>{
     //todo later
+
+    //doing now
+    return res.redirect('/');
 }
