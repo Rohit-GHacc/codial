@@ -14,8 +14,16 @@
     <section id="posts">
         <h4>Your Posts: </h4>
         <% for(let i of posts){ %>
-             <textarea  cols="30" rows="3" readonly><%= i.content %>  <%= i.user.email %> </textarea>
-             
+             <textarea  cols="30" rows="3" readonly><%= i.content %>  
+                <%= i.user.email %> 
+            </textarea>
+             <% if(locals.user){ %>
+             <form action="/comments/create" method="POST">
+                <input type="text" name="content"   placeholder = "Add comment... ">
+                <input type="hidden" name="post" value=" <%= i._id %> ">
+                <input type="submit" value="Add">
+             </form>
+             <%}%>
         <%}%>
 
     </section>

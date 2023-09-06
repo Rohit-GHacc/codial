@@ -11,16 +11,16 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
  // unlike other libraries it requires argument (session) coz it needss to store the session 
 const MongoStore = require('connect-mongo');
-const sassMiddleware = require('node-sass-middleware')
+// const sassMiddleware = require('sass-middleware')   <<-----------------------------------------------------DOUBT  HERE
 
 // this middleware is to be used whenever the server starts so use it before starting the server:
-app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
-    debug: true,
-    outputStyle: 'extended',
-    prefix: '/css'
-}));
+// app.use(sassMiddleware({
+//     src: './assets/scss',
+//     dest: './assets/css',
+//     debug: true,
+//     outputStyle: 'extended',
+//     prefix: '/css'
+// }));
 
 app.use(express.urlencoded());
 app.use(cookieParser())
