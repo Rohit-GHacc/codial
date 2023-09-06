@@ -4,7 +4,16 @@
     <section id="feed-posts">
         <h4>Posts</h4>
         <form action="/posts/create" id="new-post-form" method="POST">
-            <textarea name="content"  cols="30" rows="3" placeholder="Type here..."></textarea>
+            <textarea name="content"  cols="30" rows="3" placeholder="Type here..." ></textarea>
             <input type="submit" value="Post">
         </form>
+    </section>
+
+    <section id="posts">
+        <h4>Your Posts: </h4>
+        <% for(let i of posts){ %>
+             <textarea  cols="30" rows="3" readonly><%= i.content %>  <%= i.user.email %> </textarea>
+             
+        <%}%>
+
     </section>
