@@ -14,6 +14,11 @@
     <section id="posts">
         <h4>Your Posts: </h4>
         <% for(let i of posts){ %>
+            <% if((locals.user)&& (locals.user.id == i.user.id) ){%>
+            <small>
+                <a href="/posts/destroy/<%= i.id %>">X</a>
+            </small>
+            <%}%>
              <textarea  cols="30" rows="3" readonly><%= i.content %>  
                 <%= i.user.email %> 
             </textarea>
