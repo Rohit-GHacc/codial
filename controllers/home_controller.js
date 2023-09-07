@@ -12,10 +12,11 @@ module.exports.home = async function(req,res){
         }
         
     })
-    
+    const users = await User.find({})
     return res.render('home',{
         title: 'Home',
-        posts: posts
+        posts: posts,
+        all_users: users
     });
 }
 
