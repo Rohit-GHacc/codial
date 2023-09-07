@@ -31,13 +31,18 @@
              <%}%>
              <div class="post-comments-list">
                 <ul id="post-comments-<%= i._id %>">
-                    <% for(comment of i.comments){%>
-                        <p>
-                            <%= comment.content %>
-                            <br>
-                            <%= comment.user.name %>
-                        </p>
+<%                       for(comment of i.comments){                                                            %>
+                        <% if((locals.user)&& (locals.user.id == i.user.id) ){%>
+                        <small >
+                            <a href="/comments/destroy/<%= comment.id %>">X</a>
+                        </small>
                         <%}%>
+                        <p style = "display: inline-block">
+<%=                             comment.content                                                                  %>
+                            <br>
+<%=                             comment.user.name                                                                %>
+                        </p>
+<%                         }                                                                                     %>
                 </ul>
              </div>
         <%}%>
