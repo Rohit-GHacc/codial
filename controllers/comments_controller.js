@@ -12,7 +12,7 @@ module.exports.createComment = async function(req,res){
         });
         post.comments.push(comment); //updating comments field in post schema
         post.save();// we need to save whenvever we update something
-    
+    req.flash('success','Comment uploaded');
     res.redirect('/');
     }
 }
@@ -31,9 +31,11 @@ module.exports.destroy = async function(req,res){
             comment.deleteOne();
 
             await Comment.findByIdAndUpdate(postId,{ $pull: {comments: req.params.id}})
+            req.flash('success','comment deleted');
             return res.redirect('back');
         }
         else{
+            req.flash('error',"You can't delete this comment");
             return res.redirect('back');
         }
     }
