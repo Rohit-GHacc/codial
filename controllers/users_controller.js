@@ -68,15 +68,17 @@ module.exports.createSession = (req,res)=>{
     //todo later
 
     //doing now
+    req.flash('success','Logged in Successfully');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res,next){
-    req.logout(function(err){
+    req.logout(function(err){    // this function is from passport.js
         if(err){
             return next(err);
         }
+        req.flash('success','You have logged out!');
         return res.redirect('/');
-    });  // this function is from passport.js
+    }); 
     
 }

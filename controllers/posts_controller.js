@@ -5,6 +5,8 @@ module.exports.createPost = async (req,res)=>{
         content: req.body.content,
         user: req.user._id
     });
+    req.flash('success','Post Created');
+    console.log(req.flash());
     return res.redirect('back');
 }
 

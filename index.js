@@ -12,7 +12,8 @@ const passportLocal = require('./config/passport-local-strategy');
  // unlike other libraries it requires argument (session) coz it needss to store the session  <-- DEPRECATED
 const MongoStore = require('connect-mongo');
 // const sassMiddleware = require('sass-middleware')   <<-----------------------------------------------------DOUBT  HERE
-
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 // this middleware is to be used whenever the server starts so use it before starting the server:
 // app.use(sassMiddleware({
 //     src: './assets/scss',
@@ -64,6 +65,9 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticateUser);
 
+// this flash is to be used after session is required coz it needs session cookies
+app.use(flash());
+app.use(customMware.setFlash);
 // use express router 
 app.use('/',require('./routes')); // after using passport
 
