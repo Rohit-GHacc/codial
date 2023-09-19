@@ -7,7 +7,8 @@ module.exports.createPost = async (req,res)=>{
     });
     if(req.xhr){
         // req.flash('success','Post Created');
-
+        // console.log(req.flash);
+        // console.log(req.xhr);
         return res.status(200).json({
             data: {
                 post: post
@@ -31,6 +32,7 @@ module.exports.destroy = async function(req,res){
         await Comment.deleteMany({post: req.params.id});
 
         if(req.xhr){
+
             return res.status(200).json({
                 data: {
                     post_id: req.params.id

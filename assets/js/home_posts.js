@@ -17,6 +17,7 @@
                     console.log(container);
                     // newPost.appendTo($('#posts-list-container + ul'));
                     $('#posts-list-container > ul ').prepend(newPost);
+                    req.flash('success','Post created');
                     deletePost($(` .delete-post-button`,newPost));
                 },
                 error: function(err){
@@ -47,8 +48,7 @@
          </form>
          
          <div class="post-comments-list">
-            <ul id="post-comments-${post._id }">
-            // body will be appendedTo when we add a comment
+            <ul id="post-comments-${post._id }">   
             </ul>
          </div>
          

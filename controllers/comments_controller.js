@@ -3,6 +3,7 @@ const Post = require('../models/posts');
 module.exports.createComment = async function(req,res){
     try{
     const post = await Post.findById(req.body.post.trim());
+
     if(post){
         const comment = await Comment.create({
             content: req.body.content,
@@ -10,8 +11,17 @@ module.exports.createComment = async function(req,res){
             user: req.user._id,
             
         });
+        
         post.comments.push(comment); //updating comments field in post schema
         post.save();// we need to save whenvever we update something
+        if(req.xhr){
+            return res.status(200).json({
+                data: {
+                    comment: comment
+                },
+                message:'Comment created'
+            })
+        }
     req.flash('success','Comment uploaded');
     res.redirect('/');
     }
