@@ -1,0 +1,10 @@
+<% if((locals.user)&& (locals.user.id == i.user.id) ){%>
+    <small >
+        <a href="/comments/destroy/<%= comment.id %>">X</a>
+    </small>
+    <%}%>
+    <p style = "display: inline-block">
+<%=                             comment.content                                                                  %>
+        <br>
+<%=                             comment.user.name                                                                %>
+    </p>
