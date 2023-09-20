@@ -18,6 +18,7 @@
                     console.log(container);
                     // newPost.appendTo($('#posts-list-container + ul'));
                     container.prepend(newComment);
+                    
                 },error: function(err){
                     console.log(err.responseText);
                 }
